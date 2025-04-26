@@ -1,0 +1,308 @@
+[gd_scene load_steps=29 format=3 uid="uid://daf330gs47tnl"]
+
+[ext_resource type="Texture2D" uid="uid://wfedfpnjimpf" path="res://assets/parallax-back-3.png" id="1_85g3d"]
+[ext_resource type="Texture2D" uid="uid://2buj06blsp3a" path="res://assets/parallax-back-2.png" id="2_choun"]
+[ext_resource type="Texture2D" uid="uid://6wwwfxga6o3v" path="res://assets/parallax-birds.png" id="2_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://sgfce5ar6nid" path="res://assets/parallax-back-1.png" id="3_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://b51ucklfyg47c" path="res://assets/tree-a-world.png" id="4_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://q1tjjknlvajx" path="res://scenes/player.tscn" id="5_trceg"]
+[ext_resource type="FontFile" uid="uid://cxaa70j4j1ah0" path="res://assets/fonts/Tanker-Regular.otf" id="5_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://oke3i41rfgte" path="res://scenes/monster.tscn" id="6_a8y0u"]
+[ext_resource type="Script" uid="uid://dlm7rs07gymh1" path="res://scripts/camera.gd" id="7_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://bd16y6d0jnddb" path="res://assets/parallax-ground.png" id="8_jbj1t"]
+[ext_resource type="Texture2D" uid="uid://bbv3huie8fhkt" path="res://assets/parallax-front.png" id="9_muem4"]
+[ext_resource type="FontFile" uid="uid://crfnsno0o1cai" path="res://assets/fonts/YoungSerif-Bold.otf" id="10_choun"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trceg"]
+atlas = ExtResource("2_eb6dy")
+region = Rect2(0, 0, 1500, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8y0u"]
+atlas = ExtResource("2_eb6dy")
+region = Rect2(1500, 0, 1500, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkv2x"]
+atlas = ExtResource("2_eb6dy")
+region = Rect2(3000, 0, 1500, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbj1t"]
+atlas = ExtResource("2_eb6dy")
+region = Rect2(4500, 0, 1500, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muem4"]
+atlas = ExtResource("2_eb6dy")
+region = Rect2(6000, 0, 1500, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dp3eg"]
+atlas = ExtResource("2_eb6dy")
+region = Rect2(7500, 0, 1500, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ld40"]
+atlas = ExtResource("2_eb6dy")
+region = Rect2(9000, 0, 1500, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqmmt"]
+atlas = ExtResource("2_eb6dy")
+region = Rect2(10500, 0, 1500, 750)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yc10j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trceg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8y0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkv2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbj1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muem4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dp3eg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ld40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqmmt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_trceg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_eb6dy"]
+resource_name = "birds"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 1.23333, 2.13333, 2.96, 3.8, 5),
+"transitions": PackedFloat32Array(0.535888, 1.62451, 0.450626, 0.420448, 1.68179, 1.51571, 0.406126),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -6.14), Vector2(0, -22.75), Vector2(0, -35.83), Vector2(0, -28.94), Vector2(0, -18.615), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a8y0u"]
+_data = {
+&"RESET": SubResource("Animation_trceg"),
+&"birds": SubResource("Animation_eb6dy")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_85g3d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_choun"]
+font = ExtResource("5_ya4ey")
+font_size = 125
+font_color = Color(0.999793, 0.95663, 0.898909, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.415686)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(35.875, 20)
+
+[sub_resource type="LabelSettings" id="LabelSettings_85g3d"]
+font = ExtResource("10_choun")
+font_size = 20
+font_color = Color(0.9, 0.714, 0.342, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.415686)
+
+[node name="Main" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(720, 345)
+
+[node name="Sky" type="Parallax2D" parent="Background"]
+repeat_size = Vector2(1500, 0)
+repeat_times = 2
+
+[node name="ColorRect" type="ColorRect" parent="Background/Sky"]
+offset_left = -942.0
+offset_top = -953.0
+offset_right = 782.0
+offset_bottom = 771.0
+color = Color(0.666667, 0.666667, 0.666667, 1)
+
+[node name="Back3" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.2, 1)
+repeat_size = Vector2(1500, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Back3"]
+texture = ExtResource("1_85g3d")
+
+[node name="Birds" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.4, 1)
+repeat_size = Vector2(5000, 0)
+autoscroll = Vector2(-100, 0)
+repeat_times = 2
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="Background/Birds"]
+sprite_frames = SubResource("SpriteFrames_yc10j")
+autoplay = "default"
+frame_progress = 0.881528
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Birds"]
+libraries = {
+&"": SubResource("AnimationLibrary_a8y0u")
+}
+autoplay = "birds"
+
+[node name="Back2" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.5, 1)
+repeat_size = Vector2(1500, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Back2"]
+texture = ExtResource("2_choun")
+
+[node name="Back1" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.8, 1)
+repeat_size = Vector2(1500, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Back1"]
+texture = ExtResource("3_ya4ey")
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Trees" type="Parallax2D" parent="World"]
+repeat_size = Vector2(1500, 0)
+repeat_times = 2
+
+[node name="Tree-a-world" type="Sprite2D" parent="World/Trees"]
+position = Vector2(614, 525)
+texture = ExtResource("4_eb6dy")
+
+[node name="Tree-a-world2" type="Sprite2D" parent="World/Trees"]
+position = Vector2(1200, 525)
+texture = ExtResource("4_eb6dy")
+
+[node name="Tree-a-world3" type="Sprite2D" parent="World/Trees"]
+position = Vector2(182, 525)
+texture = ExtResource("4_eb6dy")
+
+[node name="Text" type="Parallax2D" parent="World"]
+scroll_scale = Vector2(0.7, 1)
+repeat_size = Vector2(10000, 0)
+
+[node name="Quote" type="PanelContainer" parent="World/Text"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 305.5
+offset_right = 1280.0
+offset_bottom = 457.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_85g3d")
+
+[node name="Text" type="Label" parent="World/Text/Quote"]
+layout_mode = 2
+text = "Beneath Our Graves"
+label_settings = SubResource("LabelSettings_choun")
+horizontal_alignment = 1
+
+[node name="Player" parent="." instance=ExtResource("5_trceg")]
+position = Vector2(297, 629)
+
+[node name="Monster" parent="." instance=ExtResource("6_a8y0u")]
+position = Vector2(371, 637)
+
+[node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+position = Vector2(297, 479)
+zoom = Vector2(0.8, 0.8)
+script = ExtResource("7_jkv2x")
+target = NodePath("../Player")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(667, 720)
+
+[node name="CollisionBody" type="CollisionShape2D" parent="Floor"]
+position = Vector2(1587.5, 200)
+scale = Vector2(10000, 20)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Foreground" type="Node2D" parent="."]
+position = Vector2(720, 345)
+
+[node name="Ground" type="Parallax2D" parent="Foreground"]
+repeat_size = Vector2(1500, 0)
+repeat_times = 2
+
+[node name="ColorRect" type="ColorRect" parent="Foreground/Ground"]
+offset_left = -1085.0
+offset_top = 375.0
+offset_right = 915.0
+offset_bottom = 775.0
+color = Color(0.207843, 0.207843, 0.207843, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Foreground/Ground"]
+texture = ExtResource("8_jbj1t")
+
+[node name="Front" type="Parallax2D" parent="Foreground"]
+scroll_scale = Vector2(1.5, 1)
+repeat_size = Vector2(1500, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Foreground/Front"]
+texture = ExtResource("9_muem4")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="UIRoot" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Quote" type="PanelContainer" parent="UI/UIRoot"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -206.0
+offset_top = -128.0
+offset_right = 206.0
+offset_bottom = -97.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_85g3d")
+
+[node name="Text" type="Label" parent="UI/UIRoot/Quote"]
+layout_mode = 2
+text = "Once again, wandering."
+label_settings = SubResource("LabelSettings_85g3d")
+horizontal_alignment = 1
